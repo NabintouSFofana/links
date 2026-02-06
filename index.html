@@ -8,19 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Soft yellow palette inspired by 2026 colour trends【998569774892008†L369-L425】 */
-            --primary: #F6E7B4;     /* light banana yellow for backgrounds */
+            /* Updated palette for a white, glassy look while keeping warm accents */
+            --primary: #ffffff;     /* white background for the page */
             --secondary: #E0B973;   /* warm golden tone for accents */
             --accent: #8E6139;      /* cocoa brown for text and contrast */
-            --card-bg: #fff9ed;     /* very pale yellow for cards */
+            /* Glass card variables: a subtle gradient and border for a shiny effect */
+            --card-glow-start: rgba(255, 255, 255, 0.7);
+            --card-glow-end: rgba(255, 255, 255, 0.35);
+            --card-border: rgba(255, 255, 255, 0.6);
+            --card-shadow: rgba(0, 0, 0, 0.1);
         }
 
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            /*background: var(--primary);
-            color: var(--accent);*/
-            background-color: #ffffff;
+            background: var(--primary);
+            color: var(--accent);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -31,22 +34,22 @@
             padding: 50px 0 90px;
             text-align: center;
             position: relative;
-            /*background: linear-gradient(to bottom, #FFF9E5 0%, #FBE8C2 100%);*/
+            /* Subtle cream gradient for a premium header against the white page */
+            background: linear-gradient(to bottom, #ffffff 0%, #fdf7e8 100%);
         }
 
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.3em;
-            margin: 15px 0 8px;
+            font-size: 2.1em;
+            margin: 12px 0 6px;
             color: var(--accent);
         }
 
         .header p {
-            font-size: 0.8em;
+            font-size: 0.95em;
             margin: 0;
             color: var(--accent);
-            opacity: 0.9;
-            text-align: center;
+            opacity: 0.8;
         }
 
         .profile-image {
@@ -68,6 +71,16 @@
             margin: -70px auto 40px;
             position: relative;
             z-index: 2;
+        }
+
+        /* Bio paragraph styling */
+        .bio {
+            max-width: 600px;
+            margin: 8px auto 0;
+            font-size: 0.85em;
+            line-height: 1.5;
+            color: rgba(142, 97, 57, 0.75);
+            text-align: center;
         }
 
         /* Language switcher */
@@ -102,20 +115,24 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            background: var(--card-bg);
-            border: 1px solid #f0d7a6;
+            /* Glassmorphic panel: use a gradient for shine, blur for frosted effect, and a soft shadow */
+            background: linear-gradient(135deg, var(--card-glow-start) 0%, var(--card-glow-end) 100%);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 14px 20px;
             margin-bottom: 18px;
             text-decoration: none;
             color: var(--accent);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 16px var(--card-shadow);
             transition: transform 0.15s ease, box-shadow 0.15s ease;
+            overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px var(--card-shadow);
         }
 
         .card img {
@@ -126,20 +143,20 @@
 
         .card-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin: 0;
             color: var(--accent);
         }
 
         .card-desc {
-            font-size: 0.9em;
+            font-size: 0.85em;
             margin-top: 4px;
             color: rgba(142, 97, 57, 0.85);
         }
 
         footer {
             margin: 35px 0 20px;
-            font-size: 0.72em;
+            font-size: 0.7em;
             color: rgba(142, 97, 57, 0.7);
             text-align: center;
             line-height: 1.4;
@@ -191,8 +208,13 @@
     <header class="header">
         <span class="profile-image" role="presentation"></span>
         <h1>Schicgirl</h1>
+        <h3>natural Hair</h3>
         <p class="lang-en">For women with curly, coily & textured hair.</p>
         <p class="lang-fr">Pour les femmes aux cheveux bouclés, frisés et texturés.</p>
+        <!-- Bio paragraphs describing the mission in both languages -->
+      <!--  <p class="bio lang-en">Helping women with curly, frizzy and textured hair understand, care for, and grow their natural hair through simple routines,<br>knowledge and the right tools.</p>
+        <p class="bio lang-fr">Aider les femmes aux cheveux bouclés, frisés et texturés à comprendre, entretenir et faire pousser leurs cheveux naturels grâce à des routines simples,<br>des connaissances et les bons outils.</p>
+     -->
     </header>
     <main class="container">
         <!-- Language switcher buttons -->
@@ -204,7 +226,7 @@
         <div class="lang-en">
             <!-- Shop Link -->
             <a class="card" href="https://beacons.ai/schicgirls" target="_blank" rel="noopener">
-                <img src="icon_shop.png" alt="Shop icon" />
+                <img src="icon_shop_clear.png" alt="Shop icon" />
                 <div>
                     <p class="card-title">Shop</p>
                     <p class="card-desc">Discover all my newest items and exclusive products</p>
@@ -212,7 +234,7 @@
             </a>
             <!-- Amazon Picks Link -->
             <a class="card" href="https://www.amazon.com/shop/schicgirl" target="_blank" rel="noopener">
-                <img src="icon_amazon.png" alt="Amazon picks icon" />
+                <img src="icon_amazon_clear.png" alt="Amazon picks icon" />
                 <div>
                     <p class="card-title">My Amazon Picks</p>
                     <p class="card-desc">My recommendations and carefully curated affiliate links</p>
@@ -220,7 +242,7 @@
             </a>
             <!-- Facebook Link -->
             <a class="card" href="https://www.facebook.com/schicgirl" target="_blank" rel="noopener">
-                <img src="icon_facebook.png" alt="Facebook icon" />
+                <img src="icon_facebook_clear.png" alt="Facebook icon" />
                 <div>
                     <p class="card-title">Facebook</p>
                     <p class="card-desc">Follow me for updates and behind‑the‑scenes news</p>
@@ -228,7 +250,7 @@
             </a>
             <!-- Email Link -->
             <a class="card" href="mailto:contacte.schicgirl@gmail.com" target="_self">
-                <img src="icon_email.png" alt="Email icon" />
+                <img src="icon_email_clear.png" alt="Email icon" />
                 <div>
                     <p class="card-title">Email</p>
                     <p class="card-desc">Write to me for any questions or collaboration opportunities</p>
@@ -239,7 +261,7 @@
         <div class="lang-fr">
             <!-- Boutique Link -->
             <a class="card" href="https://beacons.ai/schicgirls" target="_blank" rel="noopener">
-                <img src="icon_shop.png" alt="Icône boutique" />
+                <img src="icon_shop_clear.png" alt="Icône boutique" />
                 <div>
                     <p class="card-title">Boutique</p>
                     <p class="card-desc">Découvrez toutes mes nouveautés et produits exclusifs</p>
@@ -247,7 +269,7 @@
             </a>
             <!-- Amazon Picks Link (FR) -->
             <a class="card" href="https://www.amazon.com/shop/schicgirl" target="_blank" rel="noopener">
-                <img src="icon_amazon.png" alt="Icône Amazon" />
+                <img src="icon_amazon_clear.png" alt="Icône Amazon" />
                 <div>
                     <p class="card-title">Mes coups de cœur Amazon</p>
                     <p class="card-desc">Mes recommandations et liens affiliés soigneusement sélectionnés</p>
@@ -255,7 +277,7 @@
             </a>
             <!-- Facebook Link (FR) -->
             <a class="card" href="https://www.facebook.com/schicgirl" target="_blank" rel="noopener">
-                <img src="icon_facebook.png" alt="Icône Facebook" />
+                <img src="icon_facebook_clear.png" alt="Icône Facebook" />
                 <div>
                     <p class="card-title">Facebook</p>
                     <p class="card-desc">Suivez‑moi pour des mises à jour et des coulisses</p>
@@ -263,7 +285,7 @@
             </a>
             <!-- Email Link (FR) -->
             <a class="card" href="mailto:contacte.schicgirl@gmail.com" target="_self">
-                <img src="icon_email.png" alt="Icône email" />
+                <img src="icon_email_clear.png" alt="Icône email" />
                 <div>
                     <p class="card-title">Contact</p>
                     <p class="card-desc">Écrivez‑moi pour toute question ou collaboration</p>
