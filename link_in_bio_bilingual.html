@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schicgirl – Links</title>
+    <!-- Import Google Fonts for an elegant feminine look -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Soft yellow palette inspired by 2026 colour trends【998569774892008†L369-L425】 */
+            --primary: #F6E7B4;     /* light banana yellow for backgrounds */
+            --secondary: #E0B973;   /* warm golden tone for accents */
+            --accent: #8E6139;      /* cocoa brown for text and contrast */
+            --card-bg: #fff9ed;     /* very pale yellow for cards */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            /*background: var(--primary);
+            color: var(--accent);*/
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            padding: 50px 0 90px;
+            text-align: center;
+            position: relative;
+            /*background: linear-gradient(to bottom, #FFF9E5 0%, #FBE8C2 100%);*/
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3em;
+            margin: 15px 0 8px;
+            color: var(--accent);
+        }
+
+        .header p {
+            font-size: 0.8em;
+            margin: 0;
+            color: var(--accent);
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary);
+            background-color: #ffffff;
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+            /* Set the user-provided logo as background */
+            background-image: url('logo.jpg');
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: -70px auto 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Language switcher */
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .lang-switch button {
+            background: var(--secondary);
+            border: none;
+            color: var(--accent);
+            padding: 6px 14px;
+            margin: 0 6px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, background 0.2s ease;
+        }
+        .lang-switch button:hover {
+            opacity: 1;
+        }
+        .lang-switch button.active {
+            opacity: 1;
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Cards */
+        .card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid #f0d7a6;
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 18px;
+            text-decoration: none;
+            color: var(--accent);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .card-desc {
+            font-size: 0.9em;
+            margin-top: 4px;
+            color: rgba(142, 97, 57, 0.85);
+        }
+
+        footer {
+            margin: 35px 0 20px;
+            font-size: 0.72em;
+            color: rgba(142, 97, 57, 0.7);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Language visibility toggles */
+        body[data-lang="fr"] .lang-en {
+            display: none;
+        }
+        body[data-lang="en"] .lang-fr {
+            display: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a140d;
+                color: #f7dba7;
+            }
+            .header {
+                background: linear-gradient(to bottom, #2a1f14, #3a2b18);
+            }
+            .profile-image {
+                border-color: #cba85f;
+            }
+            .card {
+                background: #2d2116;
+                border-color: #3d2e1d;
+                box-shadow: none;
+            }
+            .card:hover {
+                box-shadow: none;
+            }
+            .card-title {
+                color: #f7dba7;
+            }
+            .card-desc {
+                color: rgba(247, 219, 167, 0.85);
+            }
+            footer {
+                color: rgba(247, 219, 167, 0.7);
+            }
+            .lang-switch button.active {
+                color: #1a140d;
+            }
+        }
+    </style>
+</head>
+<body data-lang="en">
+    <header class="header">
+        <span class="profile-image" role="presentation"></span>
+        <h1>Schicgirl</h1>
+        <p class="lang-en">For women with curly, coily & textured hair.</p>
+        <p class="lang-fr">Pour les femmes aux cheveux bouclés, frisés et texturés.</p>
+    </header>
+    <main class="container">
+        <!-- Language switcher buttons -->
+        <div class="lang-switch">
+            <button type="button" data-lang="en" class="active">English</button>
+            <button type="button" data-lang="fr">Français</button>
+        </div>
+        <!-- English content -->
+        <div class="lang-en">
+            <!-- Shop Link -->
+            <a class="card" href="https://beacons.ai/schicgirls" target="_blank" rel="noopener">
+                <img src="icon_shop.png" alt="Shop icon" />
+                <div>
+                    <p class="card-title">Shop</p>
+                    <p class="card-desc">Discover all my newest items and exclusive products</p>
+                </div>
+            </a>
+            <!-- Amazon Picks Link -->
+            <a class="card" href="https://www.amazon.com/shop/schicgirl" target="_blank" rel="noopener">
+                <img src="icon_amazon.png" alt="Amazon picks icon" />
+                <div>
+                    <p class="card-title">My Amazon Picks</p>
+                    <p class="card-desc">My recommendations and carefully curated affiliate links</p>
+                </div>
+            </a>
+            <!-- Facebook Link -->
+            <a class="card" href="https://www.facebook.com/schicgirl" target="_blank" rel="noopener">
+                <img src="icon_facebook.png" alt="Facebook icon" />
+                <div>
+                    <p class="card-title">Facebook</p>
+                    <p class="card-desc">Follow me for updates and behind‑the‑scenes news</p>
+                </div>
+            </a>
+            <!-- Email Link -->
+            <a class="card" href="mailto:contacte.schicgirl@gmail.com" target="_self">
+                <img src="icon_email.png" alt="Email icon" />
+                <div>
+                    <p class="card-title">Email</p>
+                    <p class="card-desc">Write to me for any questions or collaboration opportunities</p>
+                </div>
+            </a>
+        </div>
+        <!-- French content -->
+        <div class="lang-fr">
+            <!-- Boutique Link -->
+            <a class="card" href="https://beacons.ai/schicgirls" target="_blank" rel="noopener">
+                <img src="icon_shop.png" alt="Icône boutique" />
+                <div>
+                    <p class="card-title">Boutique</p>
+                    <p class="card-desc">Découvrez toutes mes nouveautés et produits exclusifs</p>
+                </div>
+            </a>
+            <!-- Amazon Picks Link (FR) -->
+            <a class="card" href="https://www.amazon.com/shop/schicgirl" target="_blank" rel="noopener">
+                <img src="icon_amazon.png" alt="Icône Amazon" />
+                <div>
+                    <p class="card-title">Mes coups de cœur Amazon</p>
+                    <p class="card-desc">Mes recommandations et liens affiliés soigneusement sélectionnés</p>
+                </div>
+            </a>
+            <!-- Facebook Link (FR) -->
+            <a class="card" href="https://www.facebook.com/schicgirl" target="_blank" rel="noopener">
+                <img src="icon_facebook.png" alt="Icône Facebook" />
+                <div>
+                    <p class="card-title">Facebook</p>
+                    <p class="card-desc">Suivez‑moi pour des mises à jour et des coulisses</p>
+                </div>
+            </a>
+            <!-- Email Link (FR) -->
+            <a class="card" href="mailto:contacte.schicgirl@gmail.com" target="_self">
+                <img src="icon_email.png" alt="Icône email" />
+                <div>
+                    <p class="card-title">Contact</p>
+                    <p class="card-desc">Écrivez‑moi pour toute question ou collaboration</p>
+                </div>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p class="lang-en">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p class="lang-fr">En tant qu’associée Amazon, je gagne des revenus grâce aux achats éligibles.</p>
+    </footer>
+    <!-- Language toggle script -->
+    <script>
+    (function() {
+        const body = document.body;
+        const buttons = document.querySelectorAll('.lang-switch button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                body.setAttribute('data-lang', lang);
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
